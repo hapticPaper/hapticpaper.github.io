@@ -1,0 +1,47 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    margin: 4
+}
+h4 {
+    margin: 4
+}
+
+.cdiv {
+    text-align: center;
+    background-color:rgba(228, 213, 185, 0.3) ;
+}
+
+#subheader{
+    margin: auto;
+    width: 50%;
+    background-color: darkgoldenrod;
+}
+
+#leftdiv{
+    width: 50%;
+    float: left;
+    background-color: aliceblue;
+}
+
+#rightdiv{
+    width: 50%;
+    float: right;
+    background-color: bisque;
+}
+
+#countdown {
+    height: 100vw;
+    position: absolute; 
+    bottom: 0;
+    margin: 0 auto;
+}
+
+
+#if{
+    width: 100vw;
+    height: 100vw;
+    border-style: none;
+}
