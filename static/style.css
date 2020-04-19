@@ -3,10 +3,10 @@ body {
 }
 
 h1 {
-    margin: 4
+    margin: 4;
 }
 h4 {
-    margin: 4
+    margin: 4;
 }
 
 .cdiv {
@@ -49,3 +49,5 @@ h4 {
 .cc {
     text-align: center;
 }
+
+
