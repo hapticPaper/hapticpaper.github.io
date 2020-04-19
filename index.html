@@ -1,36 +1,97 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
+
 <head>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <title>Bootstrap Demo</title>
+
+  <!-- Bring in our bootstrap stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/style.css">
 </head>
 
+<body>
 
-<div id="header" class="cdiv">
-    <div id="subheader" class="cdiv">
-        <h1>
-            Ian Rubenstein
-        </h1>
-        <h4>rubenstein.ian@gmail.com</h4>
+  <!-- Our rows function in containers (grid created). -->
+  <div class="container">
+
+    <!-- Our columns function in rows. -->
+    <div class="row">
+
+      <!-- Columns have 12 areas of width to work with. -->
+
+      <!-- One third of screen (4/12) -->
+      <div class="col-md-4">
+        <!-- This is column 1 of 3 -->
+      </div>
+
+      <!-- One third of screen (4/12) -->
+      <div class="col-md-4">
+        <!-- This is column 2 of 3 -->
+      </div>
+
+      <!-- One third of screen (4/12) -->
+      <div class="col-md-4">
+
+        <!-- This is column 3 of 3 -->
+      </div>
+
+      <!-- Columns float left, so all adjacent rows will appear next to each other (as long as not all space gets taken up) -->
     </div>
-</div>
 
-<section>
+  </div>
 
-    <div id="leftdiv">
-        <a href="https://rusty-flask.herokuapp.com/">Here's A better site.</a>
-        <br>
-        <a href="/stuffs/secondpage.html">Here's a boring second page</a>
+
+  <!-- Creates the Overall Grid -->
+  <div class="container">
+
+    <!-- First Row -->
+    <div class="row">
+
+      <!-- First (and only column) -->
+      <div class="col-md-12">
+      </div>
     </div>
-    <div id="rightdiv">This is some text.<br>
-        <br>
+
+    <!-- Second Row -->
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-primary" role="alert" style="text-align: center;">
+          
+            <h1>Ian Rubenstein</h1>
+            <h4><a href="mailto:rubenstein.ian@gmail.com">rubenstein.ian@gmail.com</a> </h4>
+        </div>
+
+        <div class="row">
+          <div class="col cc">
+            <h4>Languages:</h4>
+            Python, SQL, HTML, CSS, JS, Groovy, Terraform
+          </div>
+          <div class="col cc">
+            <h4>Links:<h4>
+             <a href='https://rusty-flask.herokuapp.com' target="_about">Basic Flask Site</a>
+                  <a href="/stuffs/secondpage.html">Here's a boring second page</a>
+          </div>
+        </div>
+
+    <!-- Third Row  -->
+    <div class="row">
+      <iframe width="100vw" id="if" src="https://h.rustypaper.com"> 
+
+
     </div>
-</section><br>
 
-
-
-<div id="countdown">
-<iframe width="100vw" id="if" src="https://h.rustypaper.com">
-</div>
-
+  </div>
+  </div>
+  </div>
+</body>
 
 </html>
