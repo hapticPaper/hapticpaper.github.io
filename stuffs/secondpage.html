@@ -2,9 +2,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" crossorigin="anonymous"></script>
 </head>
 
-
+<body onload="cd();">
 <div id="header" class="cdiv">
     <div id="subheader" class="cdiv">
         <h1>
@@ -26,8 +27,25 @@
 
 
 <div id="countdown">
-<iframe width="100vw" id="if" src="https://h.rustypaper.com">
 </div>
 
 
+
+<script>
+function cd(){
+        $.ajax({
+              type: 'GET',
+              url: `${'https://h.rustypaper.com'}`,
+
+              beforeSend: function(xhr){
+                 $('#countdown').html('<div class="loader"> </div>');
+              },
+
+              success: function(msg){
+                 $('#countdown').html(msg);
+              }
+            });
+}
+</script>
+</body>
 </html>

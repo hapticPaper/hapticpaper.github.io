@@ -41,6 +41,7 @@ h4 {
 
 
 #if{
+    align-content: flex-start;
     width: 100vw;
     height: 75vw;
     border-style: none;
@@ -51,3 +52,21 @@ h4 {
 }
 
 
+
+.loader {
+    position:fixed;
+    left:50%;
+    top:35%;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #a0a0a0;
+    border-radius: 50%;
+    width: 32px;
+    line-height: 1;
+    height: 32px;
+    animation: spin .5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
