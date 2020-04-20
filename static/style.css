@@ -60,7 +60,6 @@ h4 {
 }
 
 
-
 .loader {
     position:fixed;
     left:50%;
@@ -78,3 +77,4 @@ h4 {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
