@@ -4,7 +4,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Bootstrap Demo</title>
+  <title>Ian Rubenstein</title>
 
   <!-- Bring in our bootstrap stylesheet -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -51,7 +51,7 @@
 
 
   <!-- Creates the Overall Grid -->
-  <div class="container">
+  <div class="container-fluid">
 
     <!-- First Row -->
     <div class="row">
@@ -63,24 +63,87 @@
 
     <!-- Second Row -->
     <div class="row">
-      <div class="col">
+      <div class="col-1"></div>
+      <div class="col-10">
         <div class="alert alert-primary" role="alert" style="text-align: center;">
           
             <h1>Ian Rubenstein</h1>
             <h4><a href="mailto:rubenstein.ian@gmail.com">rubenstein.ian@gmail.com</a> </h4>
         </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
 
         <div class="row">
-          <div class="col cc">
+          <div class="col-2"></div>
+          <div class="col-8 cc">
             <h4>Languages:</h4>
             Python, SQL, HTML, CSS, JS, Groovy, Terraform
           </div>
-          <div class="col cc">
-            <h4>Links:<h4>
-             <a href='https://rusty-flask.herokuapp.com' target="_about">Basic Flask Site</a><br>
-             <a href="/stuffs/secondpage.html">Here's a boring second page</a>
-          </div>
+
+          <div class="col-2"></div>
         </div>
+
+
+    <div class="row"><br></div>
+    <div class="row">
+
+      <div class="col-1"></div>
+
+      <div class="col-10 projecttable">
+          <table class="table table-sm pt">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col" class="desc">Description</th>
+              <th scope="col">GitHub</th>
+              <th scope="col">Technology</th>
+              <th scope="col">Site Link</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">Rusty Flask</th>
+              <td>A site demonstrating basic Flask functionality<br>with downloadable code examples.</td>
+              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">helloFlask</a></td>
+              <td>Python, HTML, CSS, JS, Heroku</td>
+              <td><a href="https://rusty-flask.herokuapp.com" target="_blank">rusty-flask.herokuapp.com/</a></td>
+            </tr>
+
+            <tr>
+              <th scope="row">Rusty Countdown</th>
+              <td>A Flask site using BQ and Heroku, counting<br>down to the end of the <i>next</i> presidental election.</td>
+              <td><a href="https://github.com/hapticPaper/rustyCountdown" target="_blank">Coming Soon...</a></td>
+              <td>Python, GCP BigQuery, HTML, CSS, JS, Heroku</td>
+              <td><a href="https://rustypaper.herokuapp.com" target="_blank">h.rustypaper.com</a></td>
+            </tr>
+
+            <tr>
+              <th scope="row">🐶Just Dogs🐶</th>
+              <td>A site demonstrating basic Flask functionality<br>with downloadable code examples.</td>
+              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">Just Dogs</a></td>
+              <td>Python, HTML, CSS, JS, Heroku</td>
+              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">rusty-flask.herokuapp.com</a></td>
+            </tr>
+
+
+            <tr>
+              <th scope="row">RustyFlask</th>
+              <td>A site demonstrating basic Flask functionality<br>with downloadable code examples.</td>
+              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">helloFlask</a></td>
+              <td>Python, HTML, CSS, JS, Heroku</td>
+              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">rusty-flask.herokuapp.com</a></td>
+            </tr>
+
+            </tbody>
+          </table>
+      </div>
+
+      <div class="col-1"></div>
+        </div>
+
+
+
 
     <!-- Third Row  -->
     <div class="row">
