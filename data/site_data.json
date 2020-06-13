@@ -1,0 +1,60 @@
+{
+    "projects":[
+        {
+            "name": "<b>Rusty Flask</b>",
+            "description": "A site demonstrating basic Flask functionality with downloadable code examples.",
+            "gitlink": "<a href='https://github.com/hapticPaper/helloFlask' target='_blank'>helloFlask</a>",
+            "tech": "Python, Flask, HTML, CSS, JS,Heroku",
+            "sitelink": "<a href='https://rusty-flask.herokuapp.com' target='_blank'>rusty-flask.herokuapp.com</a>"
+
+        },
+        {
+            "name": "<b>Rusty Countdown</b>",
+            "description": "A Flask site using BQ and Heroku, counting down to the end of the <i>current</i> presidental election.",
+            "gitlink": "<a href='https://github.com/hapticPaper/rustyCountdown' target='_blank'>Coming Soon...</a>",
+            "tech": "Python, GCP BigQuery, HTML,CSS, JS, Heroku",
+            "sitelink": "<a href='https://rustypaper.herokuapp.com' target='_blank'>h.rustypaper.com<br>rustypaper.com</a>"
+
+        },
+        {
+            "name": "<b>Just Dogs🐶</b>",
+            "description": "A collection of many dog breeds.",
+            "gitlink": "<a href='https://github.com/hapticPaper/helloFlask' target='_blank'>AllTheDogs</a>",
+            "tech": "Python, HTML, CSS, JS, Heroku",
+            "sitelink": "<a href='https://github.com/hapticPaper/allthedogs' target='_blank'>justdogs.herokuapp.com</a>"
+
+        },
+        {
+            "name": "<b>Covid Analysis</b>",
+            "description": "Animating the daily data from<br><a href='https://github.com/CSSEGISandData/COVID-19'>github.com/CSSEGISandData/COVID-19</a>",
+            "gitlink": "<a href='https://github.com/hapticPaper/covid-sqlite' target='_blank'>covid-analysis</a>",
+            "tech": "Python, Postgres",
+            "sitelink": "<a href='https://hapticpaper.github.io/covid-sqlite/' target='_blank'>hapticpaper.github.io/covid-analysis</a>"
+
+        },
+        {
+            "name": "<b>Python Instructional</b>",
+            "description": "A collection of Jupyter Notebooks explaining core python concepts.",
+            "gitlink": "<a href='https://github.com/hapticPaper/PythonInstructional' target='_blank'>PythonInstuctional</a>",
+            "tech": "Python, Jupyter Notebook, Markdown",
+            "sitelink": "<a href='https://hapticpaper.github.io/PythonInstructional/' target='_blank'>hapticpaper.github.io/PythonInstructional</a>"
+
+        },
+        {
+            "name": "<b>Rusty Dev</b>",
+            "description": "A barebones HTML and JS editor<br>and renderer.",
+            "gitlink": "<a href='https://github.com/hapticPaper/rustydev' target='_blank'>RustyDev</a>",
+            "tech": "HTML, JS, Bootstrap",
+            "sitelink": "<a href='https://hapticpaper.github.io/rustydev' target='_blank'>hapticpaper.github.io/rustydev</a>"
+
+        },
+        {
+            "name": "<b>Rusty API Stack</b>",
+            "description": "A Flask API serving the data for 2<br>different frontends.",
+            "gitlink": "<a href='https://github.com/hapticPaper/rusty-api' target='_blank'>Rusty API</a><br><a href='https://github.com/hapticPaper/rusty-frontend' target='_blank'>Rusty Frontend</a>",
+            "tech": "Python Flask, HTML, JS, Bootstrap",
+            "sitelink": "<a href='https://rusty-api.herokuapp.com' target='_blank'>rusty-api.herokuapp.com</a><br><a href='https://hapticpaper.github.io/rusty-frontend/' target='_blank'>hapticpaper.github.io/rusty-frontend</a>"
+
+        }
+    ]
+}
