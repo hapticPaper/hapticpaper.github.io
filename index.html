@@ -30,8 +30,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="static/style.css">
@@ -57,7 +56,7 @@
     <div class="row">
       <div class="col-1"></div>
       <div class="col-10">
-        <div class="alert alert-primary" role="alert" style="text-align: center; background-color: #D7C49EFF; color:#343148FF;">
+        <div class="alert alert-primary uglybox" role="alert" style="">
 
             <h1>Ian Rubenstein</h1>
             <h4><a href="mailto:rubenstein.ian@gmail.com">rubenstein.ian@gmail.com</a> </h4>
@@ -87,7 +86,7 @@
 
       <div class="col-10 projecttable">
           <table class="table table-sm pt">
-            <thead class="" style="color:#D7C49EFF; background-color:#343148FF">
+            <thead>
             <tr>
               <th scope="col">Project</th>
               <th scope="col" class="desc">Description</th>
@@ -96,75 +95,7 @@
               <th scope="col">Site Link</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-              <th scope="row">Rusty Flask</th>
-              <td>A site demonstrating basic Flask functionality<br>with downloadable code examples.</td>
-              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">helloFlask</a></td>
-              <td>Python, Flask, HTML, CSS, JS,<br>Heroku</td>
-              <td><a href="https://rusty-flask.herokuapp.com" target="_blank">rusty-flask.herokuapp.com</a></td>
-            </tr>
-
-            <tr>
-              <th scope="row">Rusty Countdown</th>
-              <td>A Flask site using BQ and Heroku, counting<br>down to the end of the <i>current</i> presidental election.</td>
-              <td><a href="https://github.com/hapticPaper/rustyCountdown" target="_blank">Coming Soon...</a></td>
-              <td>Python, GCP BigQuery, HTML,<br>CSS, JS, Heroku</td>
-              <td><a href="https://rustypaper.herokuapp.com" target="_blank">h.rustypaper.com<br>rustypaper.com</a></td>
-            </tr>
-
-            <tr>
-              <th scope="row">🐶Just Dogs🐶</th>
-              <td>A collection of many dog breeds.</td>
-              <td><a href="https://github.com/hapticPaper/helloFlask" target="_blank">AllTheDogs</a></td>
-              <td>Python, HTML, CSS, JS, Heroku</td>
-              <td><a href="https://github.com/hapticPaper/allthedogs" target="_blank">justdogs.herokuapp.com</a></td>
-            </tr>
-
-             <tr>
-              <th scope="row">Covid Analysis</th>
-               <td>Animating the daily data from<br><a href="https://github.com/CSSEGISandData/COVID-19">github.com/CSSEGISandData/COVID-19</a></td>
-              <td><a href="https://github.com/hapticPaper/covid-sqlite" target="_blank">covid-analysis</a></td>
-              <td>Python, Postgres</td>
-              <td><a href="https://hapticpaper.github.io/covid-sqlite/" target="_blank">hapticpaper.github.io/covid-analysis</a></td>
-            </tr>
-
-
-
-            <tr>
-              <th scope="row">Python Instructional</th>
-              <td>A collection of Jupyter Notebooks explaingng<br>core python concepts.</td>
-              <td><a href="https://github.com/hapticPaper/PythonInstructional" target="_blank">PythonInstuctional</a></td>
-              <td>Python, Jupyter Notebook, Markdown</td>
-              <td><a href="https://hapticpaper.github.io/PythonInstructional/" target="_blank">hapticpaper.github.io/PythonInstructional</a></td>
-            </tr>
-
-            <tr>
-              <th scope="row">Rusty Dev</th>
-              <td>A barebones HTML and JS editor<br>and renderer.</td>
-              <td><a href="https://github.com/hapticPaper/rustydev" target="_blank">RustyDev</a></td>
-              <td>HTML, JS, Bootstrap</td>
-              <td><a href="https://hapticpaper.github.io/rustydev/" target="_blank">hapticpaper.github.io/rustydev</a></td>
-            </tr>
-
-            <tr>
-              <th scope="row">Rusty API Stack</th>
-              <td>A Flask API serving the data for 2<br>different frontends.</td>
-              <td><a href="https://github.com/hapticPaper/rusty-api" target="_blank">Rusty API</a><br>
-                <a href="https://github.com/hapticPaper/rusty-frontend" target="_blank">Rusty Frontend</a><br>
-              </td>
-              <td>Python Flask, HTML, JS, Bootstrap</td>
-              <td>
-                
-                <a href="https://rusty-api.herokuapp.com" target="_blank">rusty-api.herokuapp.com</a>
-                <br>
-                <a href="https://hapticpaper.github.io/rusty-frontend/" target="_blank">hapticpaper.github.io/rusty-frontend</a>
-                
-              </td>
-            </tr>
-
-
-            </tbody>
+            <tbody id="tableData"></tbody>
           </table>
       </div>
 
@@ -188,5 +119,6 @@
   </div>
   </span>
 </body>
+<script src="static/app.js"></script>
 
 </html>
