@@ -1,5 +1,4 @@
-{
-    "projects":[
+ { "projects" :[
         {
             "name": "<b>Rusty Flask</b>",
             "description": "A site demonstrating basic Flask functionality with downloadable code examples.",
@@ -53,8 +52,7 @@
             "description": "A Flask API serving the data for 2<br>different frontends.",
             "gitlink": "<a href='https://github.com/hapticPaper/rusty-api' target='_blank'>Rusty API</a><br><a href='https://github.com/hapticPaper/rusty-frontend' target='_blank'>Rusty Frontend</a>",
             "tech": "Python Flask, HTML, JS, Bootstrap",
-            "sitelink": "<a href='https://rusty-api.herokuapp.com' target='_blank'>rusty-api.herokuapp.com</a><br><a href='https://hapticpaper.github.io/rusty-frontend/' target='_blank'>hapticpaper.github.io/rusty-frontend</a>"
-
+            "sitelink": "<a href='https://rusty-api.herokuapp.com' target='_blank'>rusty-api.herokuapp.com</a><br><a href='https://hapticpaper.github.io/rusty-frontend/' target='_blank'>hapticpaper.github.io/rusty-frontend</a>
         }
     ]
-}
+        }
