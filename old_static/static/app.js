@@ -4,7 +4,7 @@
 
 $.ajax({
     type: 'GET',
-    url: `data/site_data.json`,
+    url: `/old_static/data/site_data.json`,
     beforeSend: function(xhr){
        console.log("sending request")
     },
