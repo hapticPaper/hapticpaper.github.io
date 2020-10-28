@@ -19,9 +19,9 @@
         {
             "name": "<b>Just Dogs🐶</b>",
             "description": "A collection of many dog breeds.",
-            "gitlink": "<a href='https://github.com/hapticPaper/helloFlask' target='_blank'>AllTheDogs</a>",
+            "gitlink": "<a href='https://github.com/hapticPaper/allthedogs' target='_blank'>AllTheDogs</a>",
             "tech": "Python, HTML, CSS, JS, Heroku",
-            "sitelink": "<a href='https://github.com/hapticPaper/allthedogs' target='_blank'>justdogs.herokuapp.com</a>"
+            "sitelink": "<a href='https://justdogs.herokuapp.com' target='_blank'>justdogs.herokuapp.com</a>"
 
         },
         {
