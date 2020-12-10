@@ -17,6 +17,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
 import SocialFollow from "./SocialFollow"
 
+import {ROUTES} from './constants/routes'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
       type: "dark",
     },
   headerFormat:{
-      backgroundColor:"black",
+      backgroundColor:"#F0F0F0",
   },
   h1:{
       fontSize: '4.75vmin',
@@ -63,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const ROUTES = {Welcome:<Typography variant="h2">Welcome Page</Typography>}
 export default function App() {
   
   const route = useSelector(state=> state.route)

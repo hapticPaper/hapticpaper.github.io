@@ -20,9 +20,11 @@ const useStyles = makeStyles((theme) => ({
         type: "dark",
       },
     headerFormat:{
-        backgroundColor:"black",
+        backgroundColor:"#000000",
     },
     h1:{
+        color:"#FFFFFF",
+        fontFamily:"Roboto",
         fontSize: '4.75vmin',
         fontWeight: 600,
         paddingTop: 18,
@@ -54,7 +56,7 @@ export default function ControlHeader(props)  {
       spacing={2}
     >
       <Grid container item lg={10} md={10} sm={12} xs={12} >
-        <Typography type="title" color="inherit" variant="h1"
+        <Typography type="title" variant="h1"
         className={classes.h1}>
           Ian Rubenstein
         </Typography>

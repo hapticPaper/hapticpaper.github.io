@@ -16,10 +16,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import IconButton from '@material-ui/core/IconButton';
 import AppsIcon from '@material-ui/icons/Apps';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import TimelineSharpIcon from '@material-ui/icons/TimelineSharp';
-import FunctionsSharpIcon from '@material-ui/icons/FunctionsSharp';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import HomeIcon from '@material-ui/icons/Home';
+
+import { ROUTES } from '../constants/routes'
 
     
     
@@ -43,7 +43,6 @@ export default function ControlHeader(props)  {
 
 
   const handleClick = (route) => () =>{
-    props.updateParams({...props.params, 'route':route})
     dispatch(switchPage(route))
     //setState(false)
     return;
@@ -54,7 +53,22 @@ export default function ControlHeader(props)  {
     }
     setState(open);
   };
-
+  
+  
+  const entries = Object.entries(ROUTES).map(([k,v])=>{return Object.entries(v).map(([k,v])=>{
+    console.log(`<ListItem button key=${k} id=${k}
+    onClick={handleClick(${k})}>
+    <ListItemIcon><HomeIcon/></ListItemIcon>
+    <ListItemText primary=${v.label} />
+</ListItem>`)
+          return <ListItem button key={k} id={k}
+                                            onClick={handleClick(k)}>
+                                            <ListItemIcon><HomeIcon/></ListItemIcon>
+                                            <ListItemText primary={v.label} />
+                          </ListItem>
+           }
+        )})
+  
   const list = (
     <div
       className={classes.list}
@@ -63,29 +77,14 @@ export default function ControlHeader(props)  {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-          <ListItem button key='weeklyTotals' id='weeklyTotals'
-          onClick={handleClick('WeeklyTotals')}>
-          <ListItemIcon><BarChartIcon/></ListItemIcon>
-          <ListItemText primary='Weekly Totals' />
-        </ListItem> 
-        <ListItem button key='weeklyBreakdown' id='weeklyBreakdown'
-          onClick={handleClick('WeeklyBreakdown')}>
-            <ListItemIcon><TimelineSharpIcon/></ListItemIcon>
-            <ListItemText primary='Weekly Breakdown' />
-          </ListItem>
+        {entries}
       </List>
-      <Divider/>
       <List>
-      <ListItem button key='azureCalculator' id='azureCalculator'
-          onClick={handleClick('AzureCalculator')}>
-            <ListItemIcon><FunctionsSharpIcon/></ListItemIcon>
-            <ListItemText primary='Azure Cost Calculator' />
-          </ListItem>
-
-      <ListItem button key='NextAddition' id='NextAddition'
-          onClick={handleClick('NextAddition')}>
-            <ListItemIcon><MonetizationOnIcon/></ListItemIcon>
-            <ListItemText primary='Future Additions' />
+      
+      <ListItem button key='Bio' id='Bio'
+          onClick={handleClick('Bio')}>
+            <ListItemIcon><PermIdentityIcon/></ListItemIcon>
+            <ListItemText primary="Ian's Bio" />
           </ListItem>
       </List>
     </div>
