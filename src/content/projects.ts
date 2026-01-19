@@ -60,13 +60,22 @@ function parseIsoDate(value: string | undefined): number {
   return Number.isFinite(time) ? time : 0;
 }
 
+class DuplicateProjectSlugError extends Error {
+  constructor(slug: string, a: string, b: string) {
+    super(
+      `Duplicate MDX project slug "${slug}". Slugs are derived from filenames and must be unique. Offenders: ${a} and ${b}`,
+    );
+    this.name = "DuplicateProjectSlugError";
+  }
+}
+
 function assertUniqueProjectSlugs(entries: ProjectEntryWithSource[]) {
   const seen = new Map<string, string>();
 
   for (const entry of entries) {
     const existing = seen.get(entry.slug);
     if (existing) {
-      throw new Error(`Duplicate project slug "${entry.slug}" in ${existing} and ${entry.sourcePath}`);
+      throw new DuplicateProjectSlugError(entry.slug, existing, entry.sourcePath);
     }
     seen.set(entry.slug, entry.sourcePath);
   }

@@ -27,7 +27,7 @@ export function Callout({
 
 function normalizeVariant(variant: string): CalloutVariant {
   if (variant === "note" || variant === "tip" || variant === "warning") return variant;
-  if (import.meta.env.DEV) {
+  if (import.meta.env?.DEV) {
     // eslint-disable-next-line no-console
     console.warn(`Unknown Callout variant "${variant}"; falling back to "note".`);
   }
