@@ -13,6 +13,10 @@ function MdxLink(props: ComponentPropsWithoutRef<"a">) {
   const href = props.href;
   if (!href) return <a {...props} />;
 
+  if (href.startsWith("#")) {
+    return <a {...props} />;
+  }
+
   if (href.startsWith("/")) {
     const { href: _href, ...rest } = props;
     return <Link to={href} {...rest} />;

@@ -49,6 +49,25 @@ export function ProjectCard({ project, className }: { project: ProjectEntry; cla
           ))}
         </div>
       )}
+
+      <div className="mt-4 flex gap-2 sm:hidden">
+        <Link
+          to={`/projects/${project.slug}`}
+          className="flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-center text-sm font-medium text-zinc-900 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900/50"
+        >
+          Read
+        </Link>
+        {frontmatter.url && (
+          <a
+            href={frontmatter.url}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-center text-sm font-medium text-zinc-900 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900/50"
+          >
+            Visit
+          </a>
+        )}
+      </div>
     </article>
   );
 }

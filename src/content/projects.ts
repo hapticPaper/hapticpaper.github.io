@@ -30,7 +30,7 @@ const unsortedProjects: ProjectEntryWithSource[] = Object.entries(projectModules
   const slug = path.split("/").pop()?.replace(/\.mdx$/, "") ?? path;
   const fm = mod.frontmatter;
   if (!fm?.title || !fm?.blurb) {
-    throw new Error(`Project MDX is missing required frontmatter (title/blurb): ${path}`);
+    throw new Error(`Project MDX (slug: "${slug}") is missing required frontmatter (title/blurb): ${path}`);
   }
 
   return {
@@ -48,12 +48,14 @@ export const projects: ProjectEntry[] = unsortedProjects
   .sort((a, b) => {
     const aTime = parseIsoDate(a.frontmatter.date);
     const bTime = parseIsoDate(b.frontmatter.date);
-  if (aTime !== bTime) return bTime - aTime;
-  return a.frontmatter.title.localeCompare(b.frontmatter.title);
+    if (aTime !== bTime) return bTime - aTime;
+    return a.frontmatter.title.localeCompare(b.frontmatter.title);
   });
 
+const projectBySlug = new Map(projects.map((project) => [project.slug, project]));
+
 export function getProjectBySlug(slug: string): ProjectEntry | undefined {
-  return projects.find((p) => p.slug === slug);
+  return projectBySlug.get(slug);
 }
 
 function parseIsoDate(value: string | undefined): number {
