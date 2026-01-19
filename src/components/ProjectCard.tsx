@@ -7,9 +7,8 @@ import type { ProjectEntry } from "@/content/projects";
 export function ProjectCard({ project, className }: { project: ProjectEntry; className?: string }) {
   const { frontmatter } = project;
   const [previewError, setPreviewError] = useState(false);
-  const previewImage =
-    "previewImage" in frontmatter ? frontmatter.previewImage.trim() || undefined : undefined;
-  const previewAlt = "previewImage" in frontmatter ? frontmatter.previewAlt.trim() || undefined : undefined;
+  const previewImage = "previewImage" in frontmatter ? frontmatter.previewImage : undefined;
+  const previewAlt = "previewImage" in frontmatter ? frontmatter.previewAlt : undefined;
   const hasPreviewConfigured = Boolean(previewImage);
   const hasPreview = hasPreviewConfigured && !previewError;
 

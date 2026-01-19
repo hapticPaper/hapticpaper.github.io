@@ -20,6 +20,10 @@ export type ProjectFrontmatterWithPreview = ProjectFrontmatterBase & {
 
 export type ProjectFrontmatter = ProjectFrontmatterBase | ProjectFrontmatterWithPreview;
 
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
 export type ProjectEntry = {
   slug: string;
   frontmatter: ProjectFrontmatter;
@@ -42,10 +46,7 @@ const unsortedProjects: ProjectEntryWithSource[] = Object.entries(projectModules
     throw new Error(`Project MDX (slug: "${slug}") is missing required frontmatter (title/blurb): ${path}`);
   }
 
-  if (
-    "previewImage" in fm &&
-    (!fm.previewImage.trim() || !("previewAlt" in fm) || !fm.previewAlt.trim())
-  ) {
+  if ("previewImage" in fm && (!isNonEmptyString(fm.previewImage) || !isNonEmptyString(fm.previewAlt))) {
     throw new Error(`Project MDX (slug: "${slug}") has previewImage but is missing previewAlt: ${path}`);
   }
 
