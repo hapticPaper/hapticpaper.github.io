@@ -2,14 +2,23 @@ import type { ComponentType } from "react";
 
 import type { MdxModule } from "@/content/mdxTypes";
 
-export type ProjectFrontmatter = {
+export type ProjectFrontmatterBase = {
   title: string;
   blurb: string;
+  // Live deployment URL (optional).
   url?: string;
+  // Source repo URL (recommended for GitHub projects you want to showcase).
   repo?: string;
   date?: string;
   tags?: string[];
 };
+
+export type ProjectFrontmatterWithPreview = ProjectFrontmatterBase & {
+  previewImage: string;
+  previewAlt: string;
+};
+
+export type ProjectFrontmatter = ProjectFrontmatterBase | ProjectFrontmatterWithPreview;
 
 export type ProjectEntry = {
   slug: string;
@@ -31,6 +40,13 @@ const unsortedProjects: ProjectEntryWithSource[] = Object.entries(projectModules
   const fm = mod.frontmatter;
   if (!fm?.title || !fm?.blurb) {
     throw new Error(`Project MDX (slug: "${slug}") is missing required frontmatter (title/blurb): ${path}`);
+  }
+
+  if (
+    "previewImage" in fm &&
+    (!fm.previewImage.trim() || !("previewAlt" in fm) || !fm.previewAlt.trim())
+  ) {
+    throw new Error(`Project MDX (slug: "${slug}") has previewImage but is missing previewAlt: ${path}`);
   }
 
   return {

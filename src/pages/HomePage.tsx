@@ -18,12 +18,12 @@ export function HomePage() {
 
       <section>
         <div className="mb-4 flex items-end justify-between">
-          <h2 className="text-xl font-semibold tracking-tight">Featured projects</h2>
-          <Link className="text-sm text-zinc-600 hover:underline dark:text-zinc-400" to="/projects">
+          <h2 className="heading-serif text-xl font-semibold tracking-tight">Featured projects</h2>
+          <Link className="text-sm text-[color:var(--muted)] hover:underline" to="/projects">
             See all
           </Link>
         </div>
-        <div className="grid gap-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

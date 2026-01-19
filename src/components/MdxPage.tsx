@@ -12,10 +12,10 @@ export function MdxPage({
   return (
     <article>
       <header className="mb-10">
-        <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
-        {subtitle && <p className="mt-4 max-w-2xl text-pretty text-lg text-zinc-600 dark:text-zinc-400">{subtitle}</p>}
+        <h1 className="heading-serif text-balance text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
+        {subtitle && <p className="mt-4 max-w-2xl text-pretty text-lg text-[color:var(--muted)]">{subtitle}</p>}
       </header>
-      <div className="prose prose-zinc max-w-none dark:prose-invert">{children}</div>
+      <div className="prose max-w-none">{children}</div>
     </article>
   );
 }

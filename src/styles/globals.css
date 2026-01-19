@@ -2,14 +2,61 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
+  --background: #fbf6ee;
+  --foreground: #1a1c23;
+
+  --text: var(--foreground);
+  --muted: #52525b;
+
+  --surface: rgba(255, 255, 255, 0.65);
+  --surface-solid: #ffffff;
+  --border: rgba(26, 28, 35, 0.14);
+
+  --app-background-gradient: radial-gradient(1200px circle at 10% -10%, rgba(15, 118, 110, 0.16), transparent 55%),
+    radial-gradient(900px circle at 100% 10%, rgba(161, 98, 7, 0.14), transparent 50%),
+    radial-gradient(900px circle at 30% 110%, rgba(2, 132, 199, 0.1), transparent 55%);
+
+  --card-preview-gradient: radial-gradient(700px circle at 20% 20%, rgba(15, 118, 110, 0.18), transparent 55%),
+    radial-gradient(700px circle at 90% 60%, rgba(161, 98, 7, 0.16), transparent 55%);
+
+  /* Fallbacks for browsers without `color-mix()` (overridden below in modern browsers). */
+  --code-inline-bg: var(--surface-solid);
+  --code-title-bg: var(--surface-solid);
+  --code-inline-bg: color-mix(in srgb, var(--surface-solid) 82%, var(--background) 18%);
+  --code-title-bg: color-mix(in srgb, var(--surface-solid) 85%, var(--background) 15%);
+  --code-block-bg: #0b0b12;
+  --code-block-fg: #f8fafc;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #05070b;
-    --foreground: #e5e7eb;
+    --background: #07070b;
+    --foreground: #f3f0e6;
+
+    --text: var(--foreground);
+    --muted: rgba(243, 240, 230, 0.72);
+
+    --surface: rgba(12, 12, 18, 0.6);
+    --surface-solid: rgba(12, 12, 18, 0.9);
+    --border: rgba(243, 240, 230, 0.14);
+
+    --app-background-gradient: radial-gradient(1200px circle at 10% -10%, rgba(45, 212, 191, 0.1), transparent 58%),
+      radial-gradient(900px circle at 100% 10%, rgba(250, 204, 21, 0.09), transparent 52%),
+      radial-gradient(900px circle at 30% 110%, rgba(56, 189, 248, 0.07), transparent 58%);
+
+    --card-preview-gradient: radial-gradient(700px circle at 20% 20%, rgba(45, 212, 191, 0.12), transparent 58%),
+      radial-gradient(700px circle at 90% 60%, rgba(250, 204, 21, 0.1), transparent 58%);
+
+    /* Fallbacks for browsers without `color-mix()` (overridden below in modern browsers). */
+    --code-inline-bg: var(--surface-solid);
+    --code-title-bg: var(--surface-solid);
+    --code-inline-bg: color-mix(in srgb, var(--surface-solid) 88%, var(--background) 12%);
+    --code-title-bg: color-mix(in srgb, var(--surface-solid) 90%, var(--background) 10%);
+    --code-block-bg: #0b0b12;
+    --code-block-fg: #f3f0e6;
   }
 }
 
@@ -20,10 +67,57 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.prose {
+  --tw-prose-body: var(--text);
+  --tw-prose-headings: var(--text);
+  --tw-prose-lead: var(--muted);
+  --tw-prose-links: var(--text);
+  --tw-prose-bold: var(--text);
+  --tw-prose-counters: var(--muted);
+  --tw-prose-bullets: var(--muted);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--text);
+  --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--muted);
+  --tw-prose-code: var(--text);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+}
+
+.heading-serif {
+  font-family: var(--font-serif);
+}
+
+.app-background {
+  background-color: var(--background);
+  background-image: var(--app-background-gradient);
+}
+
+.card-preview-bg {
+  background-image: var(--card-preview-gradient);
 }
 
 .prose :where(a) {
-  @apply underline decoration-zinc-400 underline-offset-4 hover:decoration-zinc-950 dark:hover:decoration-zinc-50;
+  text-decoration-line: underline;
+  text-decoration-color: var(--muted);
+  text-decoration-color: color-mix(in srgb, var(--muted) 85%, transparent);
+  text-underline-offset: 0.25em;
+}
+
+.prose :where(a:hover) {
+  text-decoration-color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose :where(a) {
+    text-decoration-color: var(--text);
+    text-decoration-color: color-mix(in srgb, var(--text) 70%, transparent);
+  }
 }
 
 .prose :where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
@@ -31,11 +125,21 @@ body {
 }
 
 .prose :where(code):not(:where(pre code)) {
-  @apply rounded bg-zinc-100 px-1 py-0.5 font-mono text-[0.9em] text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50;
+  border-radius: 0.375rem;
+  background-color: var(--code-inline-bg);
+  padding: 0.125rem 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--text);
 }
 
 .prose :where(pre) {
-  @apply overflow-x-auto rounded-xl border border-zinc-200 bg-zinc-950 text-zinc-50 shadow-sm dark:border-zinc-800;
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background-color: var(--code-block-bg);
+  color: var(--code-block-fg);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .prose :where(pre code) {
@@ -48,7 +152,15 @@ body {
 }
 
 [data-rehype-pretty-code-title] {
-  @apply rounded-t-xl border border-b-0 border-zinc-200 bg-zinc-50 px-4 py-2 font-mono text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  background-color: var(--code-title-bg);
+  padding: 0.5rem 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
 [data-rehype-pretty-code-title] + pre {
