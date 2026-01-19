@@ -4,6 +4,7 @@ import { MdxPage } from "@/components/MdxPage";
 import { ProjectCard } from "@/components/ProjectCard";
 import { homePage } from "@/content/pages";
 import { projects } from "@/content/projects";
+import { mdxComponents } from "@/mdx/components";
 
 export function HomePage() {
   const Content = homePage.Content;
@@ -12,7 +13,7 @@ export function HomePage() {
   return (
     <div className="space-y-14">
       <MdxPage title={homePage.frontmatter.title} subtitle={homePage.frontmatter.subtitle}>
-        <Content />
+        <Content components={mdxComponents} />
       </MdxPage>
 
       <section>

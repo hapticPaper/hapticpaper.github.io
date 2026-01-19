@@ -10,7 +10,7 @@ export type PageFrontmatter = {
 
 export type PageEntry = {
   frontmatter: PageFrontmatter;
-  Content: ComponentType;
+  Content: ComponentType<{ components?: Record<string, unknown> }>;
 };
 
 export const homePage: PageEntry = {

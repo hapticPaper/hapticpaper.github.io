@@ -14,7 +14,7 @@ export type ProjectFrontmatter = {
 export type ProjectEntry = {
   slug: string;
   frontmatter: ProjectFrontmatter;
-  Content: ComponentType;
+  Content: ComponentType<{ components?: Record<string, unknown> }>;
 };
 
 const projectModules = import.meta.glob("../../content/projects/*.mdx", { eager: true }) as Record<
@@ -22,25 +22,32 @@ const projectModules = import.meta.glob("../../content/projects/*.mdx", { eager:
   MdxModule<ProjectFrontmatter>
 >;
 
-export const projects: ProjectEntry[] = Object.entries(projectModules)
-  .map(([path, mod]) => {
-    const slug = path.split("/").pop()?.replace(/\.mdx$/, "") ?? path;
-    const fm = mod.frontmatter;
-    if (!fm?.title || !fm?.blurb) {
-      throw new Error(`Project MDX is missing required frontmatter (title/blurb): ${path}`);
-    }
+type ProjectEntryWithSource = ProjectEntry & { sourcePath: string };
 
-    return {
-      slug,
-      frontmatter: fm,
-      Content: mod.default,
-    };
-  })
+const unsortedProjects: ProjectEntryWithSource[] = Object.entries(projectModules).map(([path, mod]) => {
+  const slug = path.split("/").pop()?.replace(/\.mdx$/, "") ?? path;
+  const fm = mod.frontmatter;
+  if (!fm?.title || !fm?.blurb) {
+    throw new Error(`Project MDX is missing required frontmatter (title/blurb): ${path}`);
+  }
+
+  return {
+    sourcePath: path,
+    slug,
+    frontmatter: fm,
+    Content: mod.default,
+  };
+});
+
+assertUniqueProjectSlugs(unsortedProjects);
+
+export const projects: ProjectEntry[] = unsortedProjects
+  .map(({ sourcePath: _sourcePath, ...rest }) => rest)
   .sort((a, b) => {
     const aTime = parseIsoDate(a.frontmatter.date);
     const bTime = parseIsoDate(b.frontmatter.date);
-    if (aTime !== bTime) return bTime - aTime;
-    return a.frontmatter.title.localeCompare(b.frontmatter.title);
+  if (aTime !== bTime) return bTime - aTime;
+  return a.frontmatter.title.localeCompare(b.frontmatter.title);
   });
 
 export function getProjectBySlug(slug: string): ProjectEntry | undefined {
@@ -51,4 +58,16 @@ function parseIsoDate(value: string | undefined): number {
   if (!value) return 0;
   const time = Date.parse(value);
   return Number.isFinite(time) ? time : 0;
+}
+
+function assertUniqueProjectSlugs(entries: ProjectEntryWithSource[]) {
+  const seen = new Map<string, string>();
+
+  for (const entry of entries) {
+    const existing = seen.get(entry.slug);
+    if (existing) {
+      throw new Error(`Duplicate project slug "${entry.slug}" in ${existing} and ${entry.sourcePath}`);
+    }
+    seen.set(entry.slug, entry.sourcePath);
+  }
 }

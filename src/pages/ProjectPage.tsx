@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 
 import { MdxPage } from "@/components/MdxPage";
 import { getProjectBySlug } from "@/content/projects";
+import { mdxComponents } from "@/mdx/components";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
 export function ProjectPage() {
@@ -36,7 +37,7 @@ export function ProjectPage() {
           </a>
         )}
       </div>
-      <Content />
+      <Content components={mdxComponents} />
     </MdxPage>
   );
 }

@@ -9,10 +9,11 @@ export function Callout({
   children,
 }: {
   title?: string;
-  variant?: CalloutVariant;
+  variant?: string;
   children: ReactNode;
 }) {
-  const styles = getVariantStyles(variant);
+  const normalizedVariant = normalizeVariant(variant);
+  const styles = getVariantStyles(normalizedVariant);
 
   return (
     <aside className={clsx("not-prose my-6 rounded-xl border p-4", styles.container)}>
@@ -22,6 +23,15 @@ export function Callout({
       <div className={clsx("prose prose-sm max-w-none prose-zinc dark:prose-invert", styles.body)}>{children}</div>
     </aside>
   );
+}
+
+function normalizeVariant(variant: string): CalloutVariant {
+  if (variant === "note" || variant === "tip" || variant === "warning") return variant;
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.warn(`Unknown Callout variant "${variant}"; falling back to "note".`);
+  }
+  return "note";
 }
 
 function getVariantStyles(variant: CalloutVariant) {
