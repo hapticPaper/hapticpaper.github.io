@@ -17,12 +17,23 @@ function MdxLink(props: ComponentPropsWithoutRef<"a">) {
     return <a {...props} />;
   }
 
-  if (href.startsWith("/")) {
+  const normalizedHref = normalizeHref(href);
+  if (normalizedHref.startsWith("/")) {
     const { href: _href, ...rest } = props;
-    return <Link to={href} {...rest} />;
+    return <Link to={normalizedHref} {...rest} />;
   }
 
   return <a target="_blank" rel="noreferrer" {...props} />;
+}
+
+function normalizeHref(href: string): string {
+  if (href.startsWith("/") || href.startsWith("#")) return href;
+
+  const isExternal = /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(href) || href.startsWith("//");
+  if (isExternal) return href;
+
+  const normalized = href.replace(/^(\.\.\/)+/, "").replace(/^(\.\/)+/, "");
+  return `/${normalized}`;
 }
 
 function MdxImage(props: ComponentPropsWithoutRef<"img">) {

@@ -13,12 +13,24 @@ export type PageEntry = {
   Content: ComponentType<{ components?: Record<string, unknown> }>;
 };
 
+function requirePageFrontmatter(raw: unknown, source: string): PageFrontmatter {
+  const fm = raw as Partial<PageFrontmatter>;
+  if (!fm.title) {
+    throw new Error(`[content] Page frontmatter is missing required "title" in ${source}`);
+  }
+
+  return {
+    title: fm.title,
+    subtitle: fm.subtitle,
+  };
+}
+
 export const homePage: PageEntry = {
-  frontmatter: homeFrontmatter as PageFrontmatter,
+  frontmatter: requirePageFrontmatter(homeFrontmatter, "content/home.mdx"),
   Content: HomeContent,
 };
 
 export const cvPage: PageEntry = {
-  frontmatter: cvFrontmatter as PageFrontmatter,
+  frontmatter: requirePageFrontmatter(cvFrontmatter, "content/cv.mdx"),
   Content: CvContent,
 };
