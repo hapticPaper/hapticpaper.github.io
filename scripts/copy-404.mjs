@@ -10,5 +10,5 @@ try {
   await copyFile(src, dest);
 } catch (error) {
   console.error("Failed to create dist/404.html from dist/index.html:", error);
-  process.exitCode = 1;
+  process.exit(1);
 }
