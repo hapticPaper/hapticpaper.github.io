@@ -32,8 +32,13 @@ function normalizeHref(href: string): string {
   const isExternal = /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(href) || href.startsWith("//");
   if (isExternal) return href;
 
-  const normalized = href.replace(/^(\.\.\/)+/, "").replace(/^(\.\/)+/, "");
-  return `/${normalized}`;
+  // Treat bare paths (no scheme, no leading `/`) as site-root-relative.
+  // For authoring, prefer absolute internal routes like `/projects`.
+  if (!href.startsWith("./") && !href.startsWith("../")) {
+    return `/${href.replace(/^\/+/, "")}`;
+  }
+
+  return href;
 }
 
 function MdxImage(props: ComponentPropsWithoutRef<"img">) {
