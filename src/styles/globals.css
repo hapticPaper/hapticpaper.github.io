@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #05070b;
+    --foreground: #e5e7eb;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.prose :where(a) {
+  @apply underline decoration-zinc-400 underline-offset-4 hover:decoration-zinc-950 dark:hover:decoration-zinc-50;
+}
+
+.prose :where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  @apply no-underline;
+}
+
+.prose :where(code):not(:where(pre code)) {
+  @apply rounded bg-zinc-100 px-1 py-0.5 font-mono text-[0.9em] text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50;
+}
+
+.prose :where(pre) {
+  @apply overflow-x-auto rounded-xl border border-zinc-200 bg-zinc-950 text-zinc-50 shadow-sm dark:border-zinc-800;
+}
+
+.prose :where(pre code) {
+  @apply bg-transparent p-0 text-inherit;
+}
+
+/* rehype-pretty-code: extra polish */
+[data-rehype-pretty-code-fragment] {
+  @apply my-6;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply rounded-t-xl border border-b-0 border-zinc-200 bg-zinc-50 px-4 py-2 font-mono text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply rounded-t-none;
+}
+
+.prose pre [data-line] {
+  @apply px-4;
+}
+
+.prose pre [data-highlighted-line] {
+  @apply bg-white/10;
+}
+
+.prose pre [data-highlighted-chars] {
+  @apply rounded bg-white/10 px-1;
+}

@@ -1,10 +1,15 @@
-.idea
-idea/*
-idea
-
-vscode/*
-.DS_Store
-
-*/node_modules/*
-*/.vscode/*
 node_modules
+dist
+
+.DS_Store
+*.log
+
+.env
+.env.*
+
+coverage
+.turbo
+
+# Editor
+.vscode
+.idea
