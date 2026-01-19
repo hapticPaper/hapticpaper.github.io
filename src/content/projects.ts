@@ -25,6 +25,8 @@ const projectModules = import.meta.glob("../../content/projects/*.mdx", { eager:
 type ProjectEntryWithSource = ProjectEntry & { sourcePath: string };
 
 const unsortedProjects: ProjectEntryWithSource[] = Object.entries(projectModules).map(([path, mod]) => {
+  // NOTE: Slugs are derived from the MDX filename under content/projects/.
+  // They must be globally unique because they map directly to /projects/:slug.
   const slug = path.split("/").pop()?.replace(/\.mdx$/, "") ?? path;
   const fm = mod.frontmatter;
   if (!fm?.title || !fm?.blurb) {

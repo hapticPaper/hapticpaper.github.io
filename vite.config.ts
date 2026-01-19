@@ -14,8 +14,10 @@ export default defineConfig({
     mdx({
       remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: "frontmatter" }], remarkGfm],
       rehypePlugins: [
+        // 1) slug+autolink for headings
         rehypeSlug,
         [rehypeAutolinkHeadings, { behavior: "wrap" }],
+        // 2) pretty-code last so it can decorate code blocks after structure is set
         [
           rehypePrettyCode,
           {

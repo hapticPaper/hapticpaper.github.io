@@ -9,7 +9,7 @@ export function Callout({
   children,
 }: {
   title?: string;
-  variant?: string;
+  variant?: CalloutVariant;
   children: ReactNode;
 }) {
   const normalizedVariant = normalizeVariant(variant);
