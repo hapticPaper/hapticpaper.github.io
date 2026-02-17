@@ -11,10 +11,11 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <NavLink to="/" className="heading-serif text-lg font-semibold tracking-tight">
             hapticpaper
           </NavLink>
-          <div className="mt-1 text-sm text-[color:var(--muted)]">bio • projects • cv</div>
+          <div className="mt-1 text-sm text-[color:var(--muted)]">bio • projects • generated • cv</div>
         </div>
         <nav className="flex items-center gap-1 text-sm">
           <TopNavLink to="/projects">Projects</TopNavLink>
+          <TopNavLink to="/generated">Generated</TopNavLink>
           <TopNavLink to="/cv">CV</TopNavLink>
           <a
             href="https://github.com/hapticPaper"
